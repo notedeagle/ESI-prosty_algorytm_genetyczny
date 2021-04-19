@@ -33,7 +33,8 @@ public class Algorytm {
 
             laczPary(osobniki, osobnikA, osobnikB, i);
             krzyzowanie(pr_krzyz, osobnikA, osobnikB);
-            nowe.addAll(mutacja(pr_mut, osobnikA, osobnikB));
+            mutacja(pr_mut, osobnikA, osobnikB);
+            nowe.addAll(selekcja(osobnikA, osobnikB));
 
             osobnikA.clear();
             osobnikB.clear();
@@ -99,9 +100,7 @@ public class Algorytm {
         }
     }
 
-    public List<String> mutacja(double pr_mut, List<String> osobnikA, List<String> osobnikB) {
-
-        List<String> nowaPopulacja = new ArrayList<>();
+    public void mutacja(double pr_mut, List<String> osobnikA, List<String> osobnikB) {
 
         for (int i = 0; i < osobnikA.size(); i++) {
             double w_lb_psl = random.nextDouble();
@@ -127,12 +126,6 @@ public class Algorytm {
                 osobnikB.add(b);
             }
         }
-
-        for (int i = 0; i < ile_os; i++) {
-            nowaPopulacja.addAll(selekcja(osobnikA, osobnikB));
-        }
-
-        return nowaPopulacja;
     }
 
     public List<String> selekcja(List<String> osobnikA, List<String> osobnikB) {
@@ -141,7 +134,7 @@ public class Algorytm {
         List<Double> prawdopodobienstwa = new ArrayList<>();
         int x;
         double prawdop, sumaKwadratow = 0, pObl = 0;
-        String osobnik = "";
+        String osobnik;
 
         double y = random.nextDouble();
 
