@@ -1,20 +1,29 @@
 import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         Random random = new Random();
+        Scanner in = new Scanner(System.in);
 
         int a = 4;
         int b = 7;
         int c = 2;
         int ile_wyn = 40;
 
-        int lb_pop = 5;
-        int ile_os = 10;
-        double pr_krzyz = 0.8;
-        double pr_mut = 0.1;
+        int lb_pop, ile_os;
+        double pr_krzyz, pr_mut;
+
+        System.out.println("Podaj liczbę populacji:");
+        lb_pop = in.nextInt();
+        System.out.println("Podaj liczbę osób w populacji:");
+        ile_os = in.nextInt();
+        System.out.println("Podaj prawopodobieństwo krzyżowania:");
+        pr_krzyz = in.nextDouble();
+        System.out.println("Podaj prawopodobieństwo mutacji:");
+        pr_mut = in.nextDouble();
 
         int[][] osobniki = new int[lb_pop][ile_os];
 
