@@ -29,7 +29,7 @@ public class Algorytm {
         String najlepszy, najlepszyWynik;
 
 
-        for (int i = 0; i < osobniki.length - 1; i++) {
+        for (int i = 0; i < osobniki.length; i++) {
 
             laczPary(osobniki, osobnikA, osobnikB, i);
             krzyzowanie(pr_krzyz, osobnikA, osobnikB);
